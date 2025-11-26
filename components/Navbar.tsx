@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Zap, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+import logoImg from '../assets/Logo.png';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -23,9 +24,7 @@ const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center gap-2 font-bold text-2xl tracking-tighter cursor-pointer">
-          <div className="w-8 h-8 bg-gradient-to-br from-n8n-orange to-n8n-red rounded-md flex items-center justify-center">
-            <Zap className="text-white w-5 h-5 fill-current" />
-          </div>
+          <img src={logoImg} alt="AIStrategix Logo" className="w-9 h-9 object-contain" />
           <span>AI<span className="text-n8n-red">Strategix</span></span>
         </div>
 
