@@ -26,7 +26,7 @@ const Navbar: React.FC = () => {
           <div className="w-8 h-8 bg-gradient-to-br from-n8n-orange to-n8n-red rounded-md flex items-center justify-center">
             <Zap className="text-white w-5 h-5 fill-current" />
           </div>
-          <span>n8n<span className="text-n8n-red">Flow</span></span>
+          <span>AI<span className="text-n8n-red">Strategix</span></span>
         </div>
 
         {/* Desktop Links */}
