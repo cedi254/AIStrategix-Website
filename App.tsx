@@ -32,6 +32,8 @@ const ScrollToTop = () => {
   return null;
 };
 
+import CustomCursor from './components/CustomCursor';
+
 const App: React.FC = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
@@ -46,6 +48,7 @@ const App: React.FC = () => {
 
   return (
     <Router>
+      <CustomCursor />
       <ScrollToTop />
       <div className="relative min-h-screen bg-n8n-dark text-white selection:bg-n8n-orange selection:text-black font-sans">
         {/* Global Background Effect */}
