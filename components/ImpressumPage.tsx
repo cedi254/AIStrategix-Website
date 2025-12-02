@@ -29,7 +29,7 @@ const ImpressumPage: React.FC = () => {
                             <h2 className="text-2xl font-bold text-white mb-4">Kontakt</h2>
                             <p>
                                 Telefon: 078 745 77 83<br />
-                                E-Mail: cedric@admyre.ch
+                                E-Mail: info@aistrategix.ch
                             </p>
                         </section>
 

@@ -29,7 +29,7 @@ const handler: Handler = async (event) => {
 
         const { data, error } = await resend.emails.send({
             from: 'AI Strategix Contact <onboarding@resend.dev>', // User should update this after domain verification
-            to: ['cedric@admyre.ch'],
+            to: ['cedric@admyre.ch', 'info@aistrategix.ch'],
             subject: `Neue Kontaktanfrage: ${projectType}`,
             html: `
         <h2>Neue Anfrage über das Kontaktformular</h2>

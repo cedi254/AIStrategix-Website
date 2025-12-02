@@ -47,7 +47,7 @@ const DatenschutzPage: React.FC = () => {
                                 Wehntalerstrasse 79<br />
                                 8057 Zürich<br />
                                 Schweiz<br /><br />
-                                E-Mail: cedric@admyre.ch
+                                E-Mail: info@aistrategix.ch
                             </p>
                         </section>
 
