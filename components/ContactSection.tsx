@@ -57,7 +57,7 @@ const ContactSection: React.FC = () => {
             <div className="space-y-6">
               <div className="flex items-center gap-4 text-gray-300">
                 <Mail className="text-n8n-orange" />
-                <span>hello@aistrategix.ch</span>
+                <span>info@aistrategix.ch</span>
               </div>
               <div className="flex items-center gap-4 text-gray-300">
                 <Phone className="text-n8n-orange" />

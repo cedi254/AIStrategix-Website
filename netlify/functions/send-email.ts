@@ -27,11 +27,17 @@ const handler: Handler = async (event) => {
 
         const resend = new Resend(apiKey);
 
-        const { data, error } = await resend.emails.send({
-            from: 'AI Strategix Contact <onboarding@resend.dev>', // User should update this after domain verification
-            to: ['cedric@admyre.ch', 'info@aistrategix.ch'],
-            subject: `Neue Kontaktanfrage: ${projectType}`,
-            html: `
+        const recipients = ['cedric@admyre.ch', 'info@aistrategix.ch'];
+        const results = [];
+        let hasSuccess = false;
+
+        for (const recipient of recipients) {
+            try {
+                const { data, error } = await resend.emails.send({
+                    from: 'AI Strategix Contact <info@aistrategix.ch>',
+                    to: [recipient],
+                    subject: `Neue Kontaktanfrage: ${projectType}`,
+                    html: `
         <h2>Neue Anfrage über das Kontaktformular</h2>
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
@@ -39,19 +45,31 @@ const handler: Handler = async (event) => {
         <p><strong>Nachricht:</strong></p>
         <p>${message}</p>
       `
-        });
+                });
 
-        if (error) {
-            console.error('Resend error:', error);
+                if (error) {
+                    console.error(`Resend error for ${recipient}:`, error);
+                    results.push({ recipient, error });
+                } else {
+                    hasSuccess = true;
+                    results.push({ recipient, data });
+                }
+            } catch (err) {
+                console.error(`Exception sending to ${recipient}:`, err);
+                results.push({ recipient, error: err });
+            }
+        }
+
+        if (!hasSuccess) {
             return {
                 statusCode: 400,
-                body: JSON.stringify({ error: error.message })
+                body: JSON.stringify({ error: 'Failed to send email to any recipient', results })
             };
         }
 
         return {
             statusCode: 200,
-            body: JSON.stringify({ message: 'Email sent successfully', data })
+            body: JSON.stringify({ message: 'Email processing completed', results })
         };
 
     } catch (error) {
