@@ -14,10 +14,10 @@ const WorkflowSection: React.FC = () => {
         </div>
 
         {/* Visual Flow Diagram */}
-        <div className="relative flex flex-col md:flex-row items-center justify-center gap-8 md:gap-0">
-          
+        <div className="relative flex flex-col md:flex-row items-center justify-center gap-0">
+
           {/* Step 1: Input */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -32,49 +32,67 @@ const WorkflowSection: React.FC = () => {
 
           {/* Arrow 1 */}
           <div className="hidden md:flex w-24 h-[2px] bg-n8n-border relative items-center justify-center">
-            <motion.div 
+            <motion.div
               animate={{ x: [-10, 40], opacity: [0, 1, 0] }}
               transition={{ repeat: Infinity, duration: 1.5 }}
-              className="absolute w-2 h-2 bg-n8n-orange rounded-full" 
+              className="absolute w-2 h-2 bg-n8n-orange rounded-full"
+            />
+          </div>
+
+          {/* Arrow 1 Mobile */}
+          <div className="flex md:hidden h-12 w-[2px] bg-n8n-border relative items-center justify-center">
+            <motion.div
+              animate={{ y: [-15, 15], opacity: [0, 1, 0] }}
+              transition={{ repeat: Infinity, duration: 1.5 }}
+              className="absolute w-2 h-2 bg-n8n-orange rounded-full"
             />
           </div>
 
           {/* Step 2: n8n Processing */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
             className="w-72 p-8 bg-gradient-to-br from-n8n-dark to-black border border-n8n-red rounded-2xl z-20 shadow-[0_0_30px_rgba(255,77,77,0.2)]"
           >
-             <div className="flex justify-between items-center mb-6">
-                <span className="text-n8n-red font-bold font-mono">n8n ENGINE</span>
-                <div className="flex gap-1">
-                  <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                </div>
-             </div>
-             <div className="space-y-3">
-                <div className="h-2 bg-n8n-border rounded w-3/4"></div>
-                <div className="h-2 bg-n8n-border rounded w-full"></div>
-                <div className="h-2 bg-n8n-border rounded w-1/2"></div>
-             </div>
-             <div className="mt-6 flex gap-2">
-                <span className="px-2 py-1 bg-n8n-border rounded text-xs font-mono text-gray-400">AI Parsing</span>
-                <span className="px-2 py-1 bg-n8n-border rounded text-xs font-mono text-gray-400">Enrichment</span>
-             </div>
+            <div className="flex justify-between items-center mb-6">
+              <span className="text-n8n-red font-bold font-mono">n8n ENGINE</span>
+              <div className="flex gap-1">
+                <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+              </div>
+            </div>
+            <div className="space-y-3">
+              <div className="h-2 bg-n8n-border rounded w-3/4"></div>
+              <div className="h-2 bg-n8n-border rounded w-full"></div>
+              <div className="h-2 bg-n8n-border rounded w-1/2"></div>
+            </div>
+            <div className="mt-6 flex gap-2">
+              <span className="px-2 py-1 bg-n8n-border rounded text-xs font-mono text-gray-400">AI Parsing</span>
+              <span className="px-2 py-1 bg-n8n-border rounded text-xs font-mono text-gray-400">Enrichment</span>
+            </div>
           </motion.div>
 
           {/* Arrow 2 */}
           <div className="hidden md:flex w-24 h-[2px] bg-n8n-border relative items-center justify-center">
-             <motion.div 
+            <motion.div
               animate={{ x: [-10, 40], opacity: [0, 1, 0] }}
               transition={{ repeat: Infinity, duration: 1.5, delay: 0.75 }}
-              className="absolute w-2 h-2 bg-n8n-orange rounded-full" 
+              className="absolute w-2 h-2 bg-n8n-orange rounded-full"
+            />
+          </div>
+
+          {/* Arrow 2 Mobile */}
+          <div className="flex md:hidden h-12 w-[2px] bg-n8n-border relative items-center justify-center">
+            <motion.div
+              animate={{ y: [-15, 15], opacity: [0, 1, 0] }}
+              transition={{ repeat: Infinity, duration: 1.5, delay: 0.75 }}
+              className="absolute w-2 h-2 bg-n8n-orange rounded-full"
             />
           </div>
 
           {/* Step 3: Output */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
