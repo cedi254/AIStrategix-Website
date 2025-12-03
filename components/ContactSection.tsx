@@ -61,7 +61,7 @@ const ContactSection: React.FC = () => {
               </div>
               <div className="flex items-center gap-4 text-gray-300">
                 <Phone className="text-n8n-orange" />
-                <span>+41 44 123 45 67</span>
+                <span>+41 78 215 05 66</span>
               </div>
               <div className="flex items-center gap-4 text-gray-300">
                 <MapPin className="text-n8n-orange" />
