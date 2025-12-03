@@ -2,7 +2,19 @@ import React, { useEffect, useState } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 const CustomCursor: React.FC = () => {
+    const [isDesktop, setIsDesktop] = useState(false);
     const [isHovering, setIsHovering] = useState(false);
+
+    // Check if we are on desktop
+    useEffect(() => {
+        const checkDesktop = () => {
+            setIsDesktop(window.matchMedia('(min-width: 768px)').matches);
+        };
+
+        checkDesktop();
+        window.addEventListener('resize', checkDesktop);
+        return () => window.removeEventListener('resize', checkDesktop);
+    }, []);
 
     // Use motion values for better performance than state
     const cursorX = useMotionValue(-100);
@@ -15,6 +27,8 @@ const CustomCursor: React.FC = () => {
     const cursorYSpring = useSpring(cursorY, springConfig);
 
     useEffect(() => {
+        if (!isDesktop) return;
+
         const moveCursor = (e: MouseEvent) => {
             cursorX.set(e.clientX - 10); // Center the cursor (20px / 2)
             cursorY.set(e.clientY - 10);
@@ -47,7 +61,9 @@ const CustomCursor: React.FC = () => {
             window.removeEventListener('mouseover', handleMouseOver);
             document.body.style.cursor = 'auto';
         };
-    }, [cursorX, cursorY]);
+    }, [cursorX, cursorY, isDesktop]);
+
+    if (!isDesktop) return null;
 
     return (
         <motion.div
