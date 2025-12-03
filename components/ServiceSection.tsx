@@ -11,7 +11,7 @@ const services = [
   {
     icon: <Server className="w-8 h-8" />,
     title: "Managed Hosting",
-    description: "Hochperformantes n8n Hosting auf Schweizer Servern. Wir kümmern uns um Updates, Sicherheit und Uptime."
+    description: "Hochperformantes n8n Cloud Hosting. Wir kümmern uns um Updates, Sicherheit und Uptime."
   },
   {
     icon: <Bot className="w-8 h-8" />,
@@ -21,7 +21,7 @@ const services = [
   {
     icon: <Shield className="w-8 h-8" />,
     title: "Security First",
-    description: "Sie behalten Ihre API-Keys. Wir bauen die Architektur, aber die Credentials liegen sicher bei Ihnen."
+    description: "Sie behalten Ihre API-Keys. Wir bauen die Architektur, die Credentials liegen sicher im n8n Credential Manager."
   },
   {
     icon: <Database className="w-8 h-8" />,
@@ -42,7 +42,7 @@ const ServiceSection: React.FC = () => {
         <div className="mb-20">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">Unsere <span className="text-n8n-orange">Expertise</span></h2>
           <p className="text-xl text-gray-400 max-w-2xl">
-            Maßgeschneiderte Lösungen für Unternehmen, die skalieren wollen. 
+            Maßgeschneiderte Lösungen für Unternehmen, die skalieren wollen.
             Kein Baukasten, sondern präzises Engineering aus Zürich.
           </p>
         </div>
